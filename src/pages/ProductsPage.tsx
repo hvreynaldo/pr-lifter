@@ -43,7 +43,7 @@ const ProductsPage: React.FC = () => {
           id: p.id,
           name: p.title,
           description: p.description || '',
-          price: p.variants && p.variants[0] ? p.variants[0].prices[0]?.amount / 100 : 0,
+          price: p.variants && p.variants.length > 0 && p.variants[0].prices && p.variants[0].prices.length > 0 ? p.variants[0].prices[0].amount / 100 : 0,
           images: p.images && p.images.length > 0 ? p.images.map((img: any) => img.url) : [],
           colors: [], // Medusa default products don't have colors; you can enhance this if you use options
           category: p.collection?.title || 'Uncategorized',
